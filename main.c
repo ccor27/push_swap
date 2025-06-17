@@ -20,6 +20,10 @@ int	main(int argc, char **argv)
 		ft_printf("Error\n");
 		return(EXIT_FAILURE);
 	}
+	char **numbers;
+
+	numbers = ft_split(argv[1],' ');
+	
 	//allow arguments like {} 1 2 4 }, {"2 1 4"} and 1 2 "23 24", 2
 	//the arguments are valid
 	//store the arguments in the stack A as numbers
