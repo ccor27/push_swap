@@ -25,10 +25,23 @@ void	ft_print_stack(t_list *stack)
 int	main(int argc, char **argv)
 {
 	char	**numbers;
+	char 	*joined;
+	char 	*tmp;
 	t_list	*stack_a;
+	int i;
 
+	i = 1;
+	numbers = NULL;
+	stack_a = NULL;
 	if (argc < 2)
 		ft_free_and_close(numbers, &stack_a);
+	while(argv[i])
+	{
+		tmp = ft_strjoin(joined, argv[i]);
+		free(joined);
+		joined = tmp;
+		i++;
+	}
 	numbers = ft_split(argv[1], ' ');
 	if (!numbers)
 		ft_free_and_close(numbers, &stack_a);

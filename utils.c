@@ -62,12 +62,12 @@ int	ft_fill_up_stack_a(t_list **stack, char **matrix)
 	i = 0;
 	while (matrix[i])
 	{
-		if (!is_valid_number(matrix[i]))
+		if (!ft_is_valid_number(matrix[i]))
 			return (0);
 		long_number = ft_atol(matrix[i]);
 		if (long_number < INT32_MIN || long_number > INT32_MAX)
 			return (0);
-		if (ft_exist_number_in_stack(long_number, stack))
+		if (ft_exist_number_in_stack(long_number, *stack))
 			return (0);
 		// there is not needed make the cast 'cause the an int
 		// fits in a long, so the compiler make the cast
