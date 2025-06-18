@@ -12,19 +12,27 @@
 
 #include "push_swap.h"
 
+void	ft_print_stack(t_list *stack)
+{
+	while (stack)
+	{
+		ft_printf("%d\n",stack->content);
+		stack = stack->next;
+	}
+
+}
+
 int	main(int argc, char **argv)
 {
-	//if there are arguments
-	if(argc < 2)
-	{
-		ft_printf("Error\n");
-		return(EXIT_FAILURE);
-	}
-	char **numbers;
+	char	**numbers;
+	t_list	*stack_a;
 
-	numbers = ft_split(argv[1],' ');
-	
-	//allow arguments like {} 1 2 4 }, {"2 1 4"} and 1 2 "23 24", 2
-	//the arguments are valid
-	//store the arguments in the stack A as numbers
+	if (argc < 2)
+		ft_free_and_close(numbers, &stack_a);
+	numbers = ft_split(argv[1], ' ');
+	if (!numbers)
+		ft_free_and_close(numbers, &stack_a);
+	if (!ft_fill_up_stack_a(&stack_a, numbers))
+		ft_free_and_close(numbers, &stack_a);
+	ft_print_stack(stack_a);
 }

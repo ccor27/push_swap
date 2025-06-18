@@ -16,19 +16,88 @@
  * Function to validate if number(from arguments) is a valid one.
  * Only allowing numbers and just one sign
  */
-int is_valid_number(char *s)
+int	ft_is_valid_number(char *s)
 {
-	int i;
+	int	i;
+
 	i = 0;
-	if(s[i] == '-' || s[i] == '+')
+	if (s[i] == '-' || s[i] == '+')
 		i++;
-	if(!s[i])//sign without number
-		return(0);
-	while(s[i])
+	if (!s[i]) // sign without number
+		return (0);
+	while (s[i])
 	{
-		if(!ft_isdigit(s[i]))
-			return(0);
+		if (!ft_isdigit(s[i]))
+			return (0);
 		i++;
 	}
-	return(1);
+	return (1);
+}
+/**
+ * Function to validate if a number exist in the stack
+ */
+int	ft_exist_number_in_stack(int number, t_list *stack)
+{
+	if (!stack)
+		return (0);
+	while (stack)
+	{
+		if (stack->content == number)
+			return (1);
+		stack = stack->next;
+	}
+	return (0);
+}
+
+/**
+ * Function to fill up the A stack with the arguments.
+ * Validating if each number
+ */
+int	ft_fill_up_stack_a(t_list **stack, char **matrix)
+{
+	int		i;
+	long	long_number;
+	t_list	*new_node;
+
+	i = 0;
+	while (matrix[i])
+	{
+		if (!is_valid_number(matrix[i]))
+			return (0);
+		long_number = ft_atol(matrix[i]);
+		if (long_number < INT32_MIN || long_number > INT32_MAX)
+			return (0);
+		if (ft_exist_number_in_stack(long_number, stack))
+			return (0);
+		// there is not needed make the cast 'cause the an int
+		// fits in a long, so the compiler make the cast
+		new_node = ft_lstnew(long_number);
+		ft_lstadd_back(stack, new_node);
+		i++;
+	}
+	return (1);
+}
+
+/**
+ * Function to free both matrix and stack then, print and close
+ * the program
+ */
+void	ft_free_and_close(char **matrix, t_list **stack)
+{
+	int	i;
+
+	i = 0;
+	if (matrix && matrix[i])
+	{
+		while (matrix[i])
+		{
+			free(matrix[i]);
+			i++;
+		}
+		free(matrix);
+	}
+	if (stack && *stack)
+		ft_lstclear(stack);
+	ft_printf("Error\n");
+	exit(EXIT_FAILURE);
 }
