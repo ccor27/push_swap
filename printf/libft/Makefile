@@ -18,12 +18,22 @@ BONUS_OBJ = $(BONUS_SRC:.c=.o)
 
 OBJ = $(SRC:.c=.o) $(BONUS_OBJ)
 
+define LOADING_BAR_COMP
+	@printf "\033[0;32mCompiling libft: ["
+	@for i in `seq 1 20`; do \
+		printf "█"; \
+		sleep 0.05; \
+	done; \
+	printf "] ✔️\033[0m\n\n"
+endef
+
 bonus: $(NAME)
 
 all : $(NAME)
 
 #final target
 $(NAME) : $(OBJ)
+	$(call LOADING_BAR_COMP)
 	ar rcs $(NAME) $(OBJ)
 
 #compilate the .c into .o

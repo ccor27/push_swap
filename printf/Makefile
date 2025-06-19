@@ -21,7 +21,7 @@ define LOADING_BAR_COMP
 		printf "█"; \
 		sleep 0.05; \
 	done; \
-	printf "] ✔️\033[0m\n"
+	printf "] ✔️\033[0m\n\n"
 endef
 
 # Default

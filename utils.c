@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crosorio < crosorio@student.42madrid.com>  #+#  +:+       +#+        */
+/*   By: crosorio <crosorio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-06-17 17:45:23 by crosorio          #+#    #+#             */
-/*   Updated: 2025-06-17 17:45:23 by crosorio         ###   ########.fr       */
+/*   Created: 2025/06/17 17:45:23 by crosorio          #+#    #+#             */
+/*   Updated: 2025/06/19 14:20:10 by crosorio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,4 +100,30 @@ void	ft_free_and_close(char **matrix, t_list **stack)
 		ft_lstclear(stack);
 	ft_printf("Error\n");
 	exit(EXIT_FAILURE);
+}
+
+/**
+ * Function to take all the arguments
+ * and join them into a single string
+ */
+void	ft_join_arguments(char **arguments, char **joined)
+{
+	char	*tmp;
+	int		i;
+
+	i = 1;
+	*joined = NULL;
+	while (arguments[i])
+	{
+		if (!joined)
+			*joined = ft_strdup(arguments[i]);
+		else
+		{
+			tmp = ft_strjoin(*joined, " ");
+			free(*joined);
+			*joined = ft_strjoin(tmp, arguments[i]);
+			free(tmp);
+		}
+		i++;
+	}
 }
