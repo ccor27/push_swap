@@ -64,8 +64,9 @@ void				ft_lstadd_back(t_list **lst, t_list *new);
 void				ft_lstdelone(t_list *lst);
 void				ft_lstclear(t_list **lst);
 void				ft_lstiter(t_list *lst, void (*f)(void *));
-t_list				*ft_lstmap(t_list *lst, int(*f)(int));
+t_list				*ft_lstmap(t_list *lst, int (*f)(int));
 char				*ft_utoa(unsigned int n);
 char				*ft_itoa_base(unsigned long n, int base);
 long				ft_atol(const char *str);
+size_t				ft_strspn(const char *s, const char *accept);
 #endif
