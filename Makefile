@@ -1,6 +1,7 @@
 NAME        = push_swap
-SRC         = main.c utils.c
-OBJ         = $(SRC:.c=.o)
+SRC         = main.c utils.c swap_moves.c rotate_moves.c put_moves.c
+OBJ_DIR     = obj
+OBJ         = $(addprefix $(OBJ_DIR)/,$(SRC:.c=.o))
 CC          = cc
 CFLAGS      = -Wall -Wextra -Werror
 FSANITIZE	= -fsanitize=address -g3
@@ -26,11 +27,14 @@ $(NAME): $(OBJ)
 	$(call LOADING_BAR_COMP)
 	@$(CC) $(CFLAGS) $(OBJ) $(PRINTF_LIB) -o $(NAME)
 
-%.o: %.c
+$(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
 	@$(CC) $(CFLAGS) $(INCLUDES)  -c $< -o $@
 
+$(OBJ_DIR):
+	@mkdir -p $(OBJ_DIR)
+
 clean:
-	@rm -f $(OBJ)
+	@rm -rf $(OBJ_DIR)
 	@$(MAKE) -C $(PRINTF_DIR) clean --silent
 
 fclean: clean

@@ -15,8 +15,8 @@ BONUS_SRC = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c ft_lstl
 			ft_lstmap_bonus.c
 
 BONUS_OBJ = $(BONUS_SRC:.c=.o)
-
-OBJ = $(SRC:.c=.o) $(BONUS_OBJ)
+OBJ_DIR = obj
+OBJ = $(addprefix $(OBJ_DIR)/,$(SRC:.c=.o) $(BONUS_OBJ))
 
 define LOADING_BAR_COMP
 	@printf "\033[0;32mCompiling libft: ["
@@ -37,11 +37,14 @@ $(NAME) : $(OBJ)
 	ar rcs $(NAME) $(OBJ)
 
 #compilate the .c into .o
-%.o: %.c
+$(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
+$(OBJ_DIR):
+	@mkdir -p $(OBJ_DIR)
+
 clean:
-	@rm -f $(OBJ) $(BONUS_OBJ)
+	@rm -rf $(OBJ_DIR) $(BONUS_OBJ)
 
 fclean: clean
 		rm -rf $(NAME)

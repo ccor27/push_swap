@@ -4,7 +4,8 @@ AR          = ar rcs
 
 # project's files
 SRC         = ft_convert_int.c ft_convert_string.c ft_printf.c utils.c
-OBJ_MANDATORY = $(SRC:.c=.o)
+OBJ_DIR     = obj
+OBJ_MANDATORY = $(addprefix $(OBJ_DIR)/,$(SRC:.c=.o))
 
 # NEW: Variables for the test executable
 TEST_EXEC   = test_ft_printf
@@ -48,7 +49,7 @@ $(TEST_EXEC): $(TEST_SRC) $(NAME)
 
 clean:
 	@$(MAKE) clean -C libft
-	@rm -f $(OBJ_MANDATORY) $(TEST_EXEC) # Added $(TEST_EXEC) to clean
+	@rm -rf $(OBJ_DIR) $(TEST_EXEC) # Added $(TEST_EXEC) to clean
 
 fclean: clean
 	@$(MAKE) fclean -C libft
@@ -56,7 +57,10 @@ fclean: clean
 
 re: fclean all
 
-%.o: %.c ft_printf.h
+$(OBJ_DIR)/%.o: %.c ft_printf.h | $(OBJ_DIR)
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+
+$(OBJ_DIR):
+	@mkdir -p $(OBJ_DIR)
 
 .PHONY: all bonus clean fclean re test

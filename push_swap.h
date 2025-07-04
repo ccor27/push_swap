@@ -6,7 +6,7 @@
 /*   By: crosorio <crosorio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 12:42:21 by crosorio          #+#    #+#             */
-/*   Updated: 2025/06/19 14:20:16 by crosorio         ###   ########.fr       */
+/*   Updated: 2025/07/04 12:22:15 by crosorio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,10 @@ int		ft_exist_number_in_stack(int number, t_list *stack);
 int		ft_fill_up_stack_a(t_list **stack, char **matrix);
 void	ft_free_and_close(char **matrix, t_list **stack);
 void	ft_join_arguments(char **arguments, char **joined);
+void	ft_swap_two_element_at_top(t_list **stack, char* movement);
+void ft_swap_elements_same_time(t_list **stack_a, t_list **stack_b);
+void ft_rotate_stack(t_list **stack, char *movemnt);
+void ft_rotate_two_stacks_at_same_time(t_list **stack_a, t_list **stack_b);
+void ft_reverse_rotate_stack(t_list **stack, char *movemnt);
+void ft_put_into_stack(t_list **stack, t_list *node, char *movemnt);
 #endif

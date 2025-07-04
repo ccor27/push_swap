@@ -6,7 +6,7 @@
 /*   By: crosorio <crosorio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 17:45:23 by crosorio          #+#    #+#             */
-/*   Updated: 2025/06/19 14:20:10 by crosorio         ###   ########.fr       */
+/*   Updated: 2025/07/04 12:59:16 by crosorio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,11 @@ int	ft_fill_up_stack_a(t_list **stack, char **matrix)
 		if (!ft_is_valid_number(matrix[i]))
 			return (0);
 		long_number = ft_atol(matrix[i]);
-		if (long_number < INT32_MIN || long_number > INT32_MAX)
+		if (long_number < INT32_MIN || long_number >= INT32_MAX)
 			return (0);
 		if (ft_exist_number_in_stack(long_number, *stack))
 			return (0);
-		// there is not needed make the cast 'cause the an int
+		// there is not needed make the cast '	ft_printf("Error\n");cause the an int
 		// fits in a long, so the compiler make the cast
 		new_node = ft_lstnew(long_number);
 		ft_lstadd_back(stack, new_node);

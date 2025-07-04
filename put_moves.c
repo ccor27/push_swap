@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   moves.c                                            :+:      :+:    :+:   */
+/*   put_moves.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: crosorio <crosorio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/19 14:41:39 by crosorio          #+#    #+#             */
-/*   Updated: 2025/06/19 15:48:13 by crosorio         ###   ########.fr       */
+/*   Created: 2025/07/04 12:19:13 by crosorio          #+#    #+#             */
+/*   Updated: 2025/07/04 13:18:46 by crosorio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rotate_stack(t_list **stack)
+void ft_put_into_stack(t_list **stack, t_list *node, char *movemnt)
 {
-	if(!stack || !*stack)
-		return;
-	t_list *first;
-	
-
+		if (!stack || !node)
+			return ;
+		ft_lstadd_front(stack,node);
+		if(movemnt)
+			ft_printf("%s",movemnt);
 }
