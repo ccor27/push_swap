@@ -14,7 +14,7 @@
 
 void ft_put_into_stack(t_list **stack, t_list *node, char *movemnt)
 {
-		if (!stack || !node)
+		if (!node)
 			return ;
 		ft_lstadd_front(stack,node);
 		if(movemnt)
