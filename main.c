@@ -40,6 +40,7 @@ int	main(int argc, char **argv)
 
 	numbers = NULL;
 	stack_a = NULL;
+	stack_b = NULL;
 	if (argc < 2)
 		ft_free_and_close(numbers, &stack_a);
 	ft_join_arguments(argv,&joined);
@@ -66,8 +67,8 @@ int	main(int argc, char **argv)
 	// ft_printf("luego de hacer rra\n");
 	// ft_reverse_rotate_stack(&stack_a,"rra\n");
 	// ft_print_stack(stack_a);
-	// ft_printf("luego de hacer pa\n");
-	// t_list *node = ft_lstnew(10);
-	// ft_put_into_stack(&stack_a,node,"pa\n");
-	// ft_print_stack(stack_a);
+	 ft_printf("luego de hacer pb (en el stack totalmente vacio)\n");
+	t_list *node = ft_lstnew(10);
+	ft_put_into_stack(&stack_b,node,"pa\n");
+	ft_print_stack(stack_b);
 }
