@@ -6,7 +6,7 @@
 /*   By: crosorio <crosorio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 12:44:30 by crosorio          #+#    #+#             */
-/*   Updated: 2025/07/04 13:15:14 by crosorio         ###   ########.fr       */
+/*   Updated: 2025/07/04 13:40:27 by crosorio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ int	main(int argc, char **argv)
 	char	**numbers;
 	char	*joined;
 	t_list	*stack_a;
-	t_list	*stack_b;
 
 	numbers = NULL;
 	stack_a = NULL;
