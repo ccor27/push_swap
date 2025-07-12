@@ -6,7 +6,7 @@
 /*   By: crosorio <crosorio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 17:55:46 by crosorio          #+#    #+#             */
-/*   Updated: 2025/05/16 13:25:11 by crosorio         ###   ########.fr       */
+/*   Updated: 2025/07/12 10:40:26 by crosorio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,10 @@
 typedef struct s_list
 {
 	int				content;
+	int				index;
+	int				push_cost;
+	int				above_median;
+	struct s_list	*target_node;
 	struct s_list	*next;
 }					t_list;
 int					ft_isalnum(int c);

@@ -6,7 +6,7 @@
 /*   By: crosorio <crosorio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 12:44:30 by crosorio          #+#    #+#             */
-/*   Updated: 2025/07/04 13:40:27 by crosorio         ###   ########.fr       */
+/*   Updated: 2025/07/12 10:44:37 by crosorio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	main(int argc, char **argv)
 	char	**numbers;
 	char	*joined;
 	t_list	*stack_a;
+	t_list	*stack_b;
 
 	numbers = NULL;
 	stack_a = NULL;
@@ -53,6 +54,7 @@ int	main(int argc, char **argv)
 		ft_free_and_close(numbers, &stack_a);
 	if(ft_is_stack_ordered(stack_a))
 		exit(EXIT_SUCCESS);
+	//assign the index to the stack_a's values
 	//everything good, create stack b
 	ft_print_stack(stack_a);
 	// ft_printf("luego de hacer sa\n");

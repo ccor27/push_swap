@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   sort_cases.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: crosorio <crosorio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/12 14:03:13 by crosorio          #+#    #+#             */
-/*   Updated: 2025/07/12 14:12:32 by crosorio         ###   ########.fr       */
+/*   Created: 2025/07/12 10:51:39 by crosorio          #+#    #+#             */
+/*   Updated: 2025/07/12 10:52:24 by crosorio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include <push_swap.h>
 
-int	ft_is_string_empty_or_blank(char *s)
+void	sort_three(t_list **stack)
 {
-	if (!s)
-		return (1);
-
-	while (*s)
-	{
-		if (!((*s>= 9 && *s<= 13) || *s == 32))
-			return (0);
-		s++;
-	}
-	return (1);
+	
 }
