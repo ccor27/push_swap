@@ -18,13 +18,14 @@
 
 typedef struct s_list
 {
-	int				content;
-	int				index;
-	int				push_cost;
-	int				above_median;
-	struct s_list	*target_node;
+	int				content;      // El número original
+	int				index;        // Posición en el array ordenado
+	int				pos;          // Posición actual en el stack
+	int				target_pos;   // Posición ideal en B donde debe insertarse
+	int				cost_a;       // Movimientos necesarios en A
+	int				cost_b;       // Movimientos necesarios en B
 	struct s_list	*next;
-}					t_list;
+}	t_list;
 int					ft_isalnum(int c);
 int					ft_isalpha(int c);
 int					ft_isascii(int c);
