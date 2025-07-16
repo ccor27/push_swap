@@ -54,8 +54,6 @@ int	main(int argc, char **argv)
 		ft_free_and_close(numbers, &stack_a);
 	if(ft_is_stack_ordered(stack_a))
 		exit(EXIT_SUCCESS);
-	//assign the index to the stack_a's values
-	//everything good, create stack b
 	ft_print_stack(stack_a);
 	// ft_printf("luego de hacer sa\n");
 	// ft_sa(&stack_a,"sa\n");
@@ -69,8 +67,8 @@ int	main(int argc, char **argv)
 	// ft_printf("luego de hacer rra\n");
 	// ft_reverse_rotate_stack(&stack_a,"rra\n");
 	// ft_print_stack(stack_a);
-	 ft_printf("luego de hacer pb (en el stack totalmente vacio)\n");
-	t_list *node = ft_lstnew(10);
-	ft_put_into_stack(&stack_b,node,"pa\n");
-	ft_print_stack(stack_b);
+	//  ft_printf("luego de hacer pb (en el stack totalmente vacio)\n");
+	// t_list *node = ft_lstnew(10);
+	// ft_put_into_stack(&stack_b,node,"pa\n");
+	// ft_print_stack(stack_b);
 }

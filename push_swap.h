@@ -27,4 +27,7 @@ void	ft_rotate_two_stacks_at_same_time(t_list **stack_a, t_list **stack_b);
 void	ft_reverse_rotate_stack(t_list **stack, char *movemnt);
 void	ft_put_into_stack(t_list **stack, t_list *node, char *movemnt);
 int		ft_is_string_empty_or_blank(char *s);
+void	ft_order_three_elements(t_list **stack);
+void	ft_assing_positions(t_list **stack);
+void	ft_find_targets(t_list **a, t_list **b);
 #endif

@@ -19,7 +19,6 @@
 typedef struct s_list
 {
 	int				content;      // El número original
-	int				index;        // Posición en el array ordenado
 	int				pos;          // Posición actual en el stack
 	int				target_pos;   // Posición ideal en B donde debe insertarse
 	int				cost_a;       // Movimientos necesarios en A

@@ -15,6 +15,7 @@
 # include "libft/libft.h"
 # include <stdarg.h>
 # include <stdint.h>
+# include <limits.h>
 
 int	ft_is_valid_specifier(char c);
 int	ft_scan(char specifier, va_list args);
