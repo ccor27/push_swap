@@ -12,19 +12,60 @@
 
 #include "push_swap.h"
 
-int	ft_is_string_empty_or_blank(char *s)
+/**
+ * Function to find the cheap movement
+ */
+t_list	*ft_find_lowest_movements_cost(t_list *stack)
 {
-	if (!s)
-		return (1);
-	while (*s)
+	t_list	*cheap;
+	int		min_cost;
+	int		cost_a;
+	int		cost_b;
+	int		total_cost;
+
+	cheap = stack;
+	min_cost = INT_MAX;
+	while (stack)
 	{
-		if (!((*s >= 9 && *s <= 13) || *s == 32))
-			return (0);
-		s++;
+		cost_a = stack->cost_a;
+		cost_b = stack->cost_b;
+		if ((cost_a >= 0 && cost_b >= 0) || (cost_a < 0 && cost_b < 0))
+			total_cost = ft_max(ft_abs(cost_a), ft_abs(cost_b));
+		else
+			total_cost = ft_abs(cost_a) + ft_abs(cost_b);
+		if (total_cost < min_cost)
+		{
+			min_cost = total_cost;
+			cheap = stack;
+		}
+		stack = stack->next;
 	}
-	return (1);
+	return (cheap);
 }
-//TODO: refactor this in order to make it more efficient and sort
+/**
+ * Function to calculate the cost of movements of each node of A
+ * and its target
+ */
+void	ft_find_cost(t_list **node, int stack_a_size, int stack_b_size)
+{
+	t_list	*head;
+
+	head = *node;
+	while (head)
+	{
+		if (head->pos <= stack_a_size / 2)
+			head->cost_a = head->pos;
+		else
+			head->cost_a = (stack_a_size - head->pos) * -1;
+		if (head->target_pos <= stack_b_size / 2)
+			head->cost_b = head->target_pos;
+		else
+			head->cost_b = (stack_b_size - head->target_pos) * -1;
+		head = head->next;
+	}
+}
+
+// TODO: refactor this in order to make it more efficient and sort
 void	ft_find_targets(t_list **a, t_list **b)
 {
 	t_list	*node_a;

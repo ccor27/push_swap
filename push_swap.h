@@ -30,4 +30,13 @@ int		ft_is_string_empty_or_blank(char *s);
 void	ft_order_three_elements(t_list **stack);
 void	ft_assing_positions(t_list **stack);
 void	ft_find_targets(t_list **a, t_list **b);
+void	ft_find_cost(t_list **node, int stack_a_size, int stack_b_size);
+t_list	*ft_find_lowest_movements_cost(t_list *stack);
+int	ft_max(int a, int b);
+int	ft_abs(int num);
+void	ft_order_two(t_list **stack);
+//move_executor.c
+void	ft_execute_movements(t_list **a, t_list **b, t_list *node);
+void ft_do_rr(t_list **a, t_list **b, t_list *node);
+void	ft_do_rrr(t_list **a, t_list **b, t_list *node);
 #endif
