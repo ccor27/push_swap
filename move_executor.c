@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_executor.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crosorio < crosorio@student.42madrid.com>  #+#  +:+       +#+        */
+/*   By: crosorio <crosorio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-07-17 13:39:51 by crosorio          #+#    #+#             */
-/*   Updated: 2025-07-17 13:39:51 by crosorio         ###   ########.fr       */
+/*   Created: 2025/07/17 13:39:51 by crosorio          #+#    #+#             */
+/*   Updated: 2025/07/19 10:10:54 by crosorio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,27 @@ void	ft_do_rr(t_list **a, t_list **b, t_list *node)
 		ft_rotate_stack(a, "ra\n");
 	while (node->cost_b-- > 0)
 		ft_rotate_stack(b, "rb\n");
+}
+int	ft_find_min_index(t_list *a)
+{
+	int		min;
+	int		index;
+	int		pos;
+	t_list	*tmp;
+
+	tmp = a;
+	min = tmp->content;
+	index = 0;
+	pos = 0;
+	while (tmp)
+	{
+		if (tmp->content < min)
+		{
+			min = tmp->content;
+			index = pos;
+		}
+		tmp = tmp->next;
+		index++;
+	}
+	return (index);
 }

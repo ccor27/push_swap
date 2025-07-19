@@ -6,7 +6,7 @@
 /*   By: crosorio <crosorio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 12:44:30 by crosorio          #+#    #+#             */
-/*   Updated: 2025/07/12 10:44:37 by crosorio         ###   ########.fr       */
+/*   Updated: 2025/07/19 11:01:34 by crosorio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ int	main(int argc, char **argv)
 		ft_free_and_close(numbers, &stack_a);
 	if(ft_is_stack_ordered(stack_a))
 		exit(EXIT_SUCCESS);
+	ft_sort(&stack_a,&stack_b);
+	ft_printf("\n");
 	ft_print_stack(stack_a);
 	// ft_printf("luego de hacer sa\n");
 	// ft_sa(&stack_a,"sa\n");
