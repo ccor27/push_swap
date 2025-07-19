@@ -6,7 +6,7 @@
 /*   By: crosorio <crosorio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 12:42:21 by crosorio          #+#    #+#             */
-/*   Updated: 2025/07/19 10:36:54 by crosorio         ###   ########.fr       */
+/*   Updated: 2025/07/19 11:38:43 by crosorio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 //args_validation_utils.c
 int		ft_is_string_empty_or_blank(char *s);
+int	ft_find_max_index(t_list *stack);
 //args_validation.c
 int		ft_is_valid_number(char *s);
 int		ft_exist_number_in_stack(int number, t_list *stack);

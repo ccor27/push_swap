@@ -6,7 +6,7 @@
 /*   By: crosorio <crosorio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 20:00:08 by crosorio          #+#    #+#             */
-/*   Updated: 2025/07/19 11:06:42 by crosorio         ###   ########.fr       */
+/*   Updated: 2025/07/19 12:04:02 by crosorio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,9 @@ void	ft_sort(t_list **a, t_list **b)
 	int		min_index;
 	int		size;
 	int		i;
+	int		max_idx;
+	int		size_b;
+	int		j;
 
 	// validate stack a has more than 3 elements
 	if (ft_lstsize(*a) < 4)
@@ -70,8 +73,8 @@ void	ft_sort(t_list **a, t_list **b)
 	else
 	{
 		// pass the 2 first elements from A to B
-		ft_put_into_stack(b, ft_pop(a), "pa\n");
-		ft_put_into_stack(b, ft_pop(a), "pa\n");
+		ft_put_into_stack(b, ft_pop(a), "pb\n");
+		ft_put_into_stack(b, ft_pop(a), "pb\n");
 		// make a loop until the size of A be more than 3
 		while (ft_lstsize(*a) > 3)
 		{
@@ -88,6 +91,9 @@ void	ft_sort(t_list **a, t_list **b)
 			ft_execute_movements(a, b, cheap_movement);
 			ft_put_into_stack(b, ft_pop(a), "pb\n");
 		}
+		// ft_printf("\n\nPila B luego de hacer los movimientos\n");
+		// ft_print_stack(*b);
+		// ft_printf("Pila B luego de hacer los movimientos\n\n");
 		// order the 3 elements in A
 		if (ft_lstsize(*a) == 3)
 			ft_order_three_elements(a);
@@ -96,7 +102,17 @@ void	ft_sort(t_list **a, t_list **b)
 		// pass all from B to A
 		while (*b)
 		{
-			// create a ft_pop function to remove the node that we pass
+			//ft_put_into_stack(a, ft_pop(b), "pa\n");
+			ft_assing_positions(b);
+			max_idx = ft_find_max_index(*b);
+			size_b = ft_lstsize(*b);
+			j = size_b - max_idx;
+			if (max_idx <= size_b / 2)
+				while (max_idx-- > 0)
+					ft_rotate_stack(b, "rb\n");
+			else
+				while (j --)
+					ft_reverse_rotate_stack(b, "rrb\n");
 			ft_put_into_stack(a, ft_pop(b), "pa\n");
 		}
 		// validate that the stack is ordered or we have to make more rotations
