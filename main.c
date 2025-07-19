@@ -6,7 +6,7 @@
 /*   By: crosorio <crosorio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 12:44:30 by crosorio          #+#    #+#             */
-/*   Updated: 2025/07/19 11:51:49 by crosorio         ###   ########.fr       */
+/*   Updated: 2025/07/19 12:45:56 by crosorio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int	main(int argc, char **argv)
 	if(!joined || ft_strlen(joined) == 0 || ft_strspn(joined, " \t\n\r\f\v") == ft_strlen(joined))
 		ft_free_and_close(numbers, &stack_a);
 	numbers = ft_split(joined, ' ');
+	free(joined);
 	if (!numbers)
 		ft_free_and_close(numbers, &stack_a);
 	if (!ft_fill_up_stack_a(&stack_a, numbers))
@@ -57,6 +58,7 @@ int	main(int argc, char **argv)
 	ft_sort(&stack_a,&stack_b);
 	ft_printf("\n");
 	ft_print_stack(stack_a);
+	ft_free_stacks_and_matrix(&stack_a,&stack_b, numbers);
 	// ft_printf("luego de hacer sa\n");
 	// ft_sa(&stack_a,"sa\n");
 	// ft_rotate_stack(&stack_a,"ra\n");

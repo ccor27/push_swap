@@ -6,7 +6,7 @@
 /*   By: crosorio <crosorio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 20:55:09 by crosorio          #+#    #+#             */
-/*   Updated: 2025/07/19 11:38:37 by crosorio         ###   ########.fr       */
+/*   Updated: 2025/07/19 12:43:51 by crosorio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,23 @@ int	ft_find_max_index(t_list *stack)
 		current = current->next;
 	}
 	return (max_index);
+}
+void	ft_free_stacks_and_matrix(t_list **a, t_list **b,char **matrix)
+{
+	int	i;
+
+	i = 0;
+	if (matrix && matrix[i])
+	{
+		while (matrix[i])
+		{
+			free(matrix[i]);
+			i++;
+		}
+		free(matrix);
+	}
+	if (a && *a)
+		ft_lstclear(a);
+	if (b && *b)
+		ft_lstclear(b);
 }

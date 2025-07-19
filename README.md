@@ -10,7 +10,7 @@ All of this should show a "Error" followed by new line
 - numbers and strings 1 2 "8 9" 0 5 (mixed)
 - empty/blank strings "1 5 4" "" or "1 5 4" " "
 
-# Turk algorithm
+# Turk algorithm (re-make this explantion)
 
 - validate that the stack A has more than 3 elements
 	- if it not, just order it without the algorithm
@@ -33,3 +33,12 @@ All of this should show a "Error" followed by new line
 - the struct
 	- index: a number to represent how each node should be (really I need this??)
 	- pos: position of the node in the stack
+## NOTES
+- the project already sort the stack A, it works with 100 elements (300-400 movements)
+- with 500 elements we get 5700 and more movements, so we have to fix that
+- when we make ./ush_swap without any parameter, we should see nothing (or at least that saids the evaluation sheet)
+- organize the files and the functions
+- refactor the code, too much lines
+- comment the code
+- understand how the checker works
+- make the bonus ???
