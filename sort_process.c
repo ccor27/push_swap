@@ -6,7 +6,7 @@
 /*   By: crosorio <crosorio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 20:00:08 by crosorio          #+#    #+#             */
-/*   Updated: 2025/07/19 12:15:11 by crosorio         ###   ########.fr       */
+/*   Updated: 2025/07/23 10:18:24 by crosorio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,15 +91,6 @@ void	ft_sort(t_list **a, t_list **b)
 			ft_execute_movements(a, b, cheap_movement);
 			ft_put_into_stack(b, ft_pop(a), "pb\n");
 		}
-		// ft_printf("\n\nPila B luego de hacer los movimientos\n");
-		// ft_print_stack(*b);
-		// ft_printf("Pila B luego de hacer los movimientos\n\n");
-		// order the 3 elements in A
-		if (ft_lstsize(*a) == 3)
-			ft_order_three_elements(a);
-		else if (ft_lstsize(*a) == 2)
-			ft_order_two(a);
-		// pass all from B to A
 		while (*b)
 		{
 			//ft_put_into_stack(a, ft_pop(b), "pa\n");
