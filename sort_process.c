@@ -94,12 +94,16 @@ void	ft_sort(t_list **a, t_list **b)
 		// ft_printf("\n\nPila B luego de hacer los movimientos\n");
 		// ft_print_stack(*b);
 		// ft_printf("Pila B luego de hacer los movimientos\n\n");
+		// ft_printf("Pila A luego de pasar los elementos a B\n");
+		//ft_print_stack(*a);
 		// order the 3 elements in A
 		if (ft_lstsize(*a) == 3)
 			ft_order_three_elements(a);
 		else if (ft_lstsize(*a) == 2)
 			ft_order_two(a);
 		// pass all from B to A
+		// ft_printf("Pila A luego de ordenar los elementos restantes\n");
+		// ft_print_stack(*a);
 		while (*b)
 		{
 			//ft_put_into_stack(a, ft_pop(b), "pa\n");
