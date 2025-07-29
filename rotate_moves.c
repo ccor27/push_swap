@@ -12,6 +12,9 @@
 
 #include "push_swap.h"
 
+/**
+ * Function to rotate a stack
+ */
 void ft_rotate_stack(t_list **stack, char *movemnt)
 {
 	if(!stack || !*stack || !(*stack)->next)
@@ -28,12 +31,19 @@ void ft_rotate_stack(t_list **stack, char *movemnt)
 		ft_printf("%s",movemnt);
 }
 
+/**
+ * Function to rotate two stacks
+ */
 void ft_rotate_two_stacks_at_same_time(t_list **stack_a, t_list **stack_b)
 {
 	ft_rotate_stack(stack_a,NULL);
 	ft_rotate_stack(stack_b,NULL);
 	ft_printf("rr\n");
 }
+
+/**
+ * Function to make a reverse rotation of a stack
+ */
 void ft_reverse_rotate_stack(t_list **stack, char *movemnt)
 {
 	if(!stack || !*stack || !(*stack)->next)
@@ -49,6 +59,9 @@ void ft_reverse_rotate_stack(t_list **stack, char *movemnt)
 	if(movemnt)
 		ft_printf("%s",movemnt);
 }
+/**
+ * Function to make a reverse rotation of two stacks
+ */
 void ft_reverse_rotate_two_stacks_at_same_time(t_list **stack_a, t_list **stack_b)
 {
 	ft_reverse_rotate_stack(stack_a,NULL);
