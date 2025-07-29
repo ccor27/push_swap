@@ -12,6 +12,10 @@
 
 #include "push_swap.h"
 
+/**
+ * Function to decide which movements do depending
+ * of the cost's sign of both stacks
+ */
 void	ft_execute_movements(t_list **a, t_list **b, t_list *node)
 {
 	if (node->cost_a >= 0 && node->cost_b >= 0)
@@ -20,14 +24,11 @@ void	ft_execute_movements(t_list **a, t_list **b, t_list *node)
 		ft_do_rrr(a, b, node);
 	else
 		ft_do_different_moves(a, b, node);
-	// //case when cost_a and cost_b are positive
-	// ft_do_rr(a, b,node);
-	// //case when cost_a and cost_b are negative,
-		//do the same like before but changing the sings
-	// ft_do_rrr(a,b,node);
-	// //case when cost_a and cost_b are different
-	// ft_do_different_moves(a,b,node);
 }
+
+/**
+ * Function to make different types of movements in both stacks
+ */
 void	ft_do_different_moves(t_list **a, t_list **b, t_list *node)
 {
 	if (node->cost_a > 0)
@@ -43,6 +44,11 @@ void	ft_do_different_moves(t_list **a, t_list **b, t_list *node)
 		while (node->cost_b++ < 0)
 			ft_reverse_rotate_stack(b, "rrb\n");
 }
+
+/**
+ * Function to make reverse rotation in both stacks, together
+ * or separately
+ */
 void	ft_do_rrr(t_list **a, t_list **b, t_list *node)
 {
 	while (node->cost_a < 0 && node->cost_b < 0)
@@ -56,6 +62,11 @@ void	ft_do_rrr(t_list **a, t_list **b, t_list *node)
 	while (node->cost_b++ < 0)
 		ft_reverse_rotate_stack(b, "rrb\n");
 }
+
+/**
+ * Function to make simple rotation in both stacks, together
+ * or separately
+ */
 void	ft_do_rr(t_list **a, t_list **b, t_list *node)
 {
 	while (node->cost_a > 0 && node->cost_b > 0)
@@ -69,26 +80,4 @@ void	ft_do_rr(t_list **a, t_list **b, t_list *node)
 	while (node->cost_b-- > 0)
 		ft_rotate_stack(b, "rb\n");
 }
-int	ft_find_min_index(t_list *a)
-{
-	int		min;
-	int		index;
-	int		pos;
-	t_list	*tmp;
 
-	tmp = a;
-	min = tmp->content;
-	index = 0;
-	pos = 0;
-	while (tmp)
-	{
-		if (tmp->content < min)
-		{
-			min = tmp->content;
-			index = pos;
-		}
-		tmp = tmp->next;
-		index++;
-	}
-	return (index);
-}

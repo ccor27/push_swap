@@ -6,12 +6,15 @@
 /*   By: crosorio <crosorio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 12:44:30 by crosorio          #+#    #+#             */
-/*   Updated: 2025/07/19 12:45:56 by crosorio         ###   ########.fr       */
+/*   Updated: 2025/07/23 10:18:07 by crosorio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/**
+ * Function to print a stack
+ */
 void	ft_print_stack(t_list *stack)
 {
 	while (stack)
@@ -20,7 +23,9 @@ void	ft_print_stack(t_list *stack)
 		stack = stack->next;
 	}
 }
-
+/**
+ * Function to validate if a stack is ordered
+ */
 int ft_is_stack_ordered(t_list *stack)
 {
 	while(stack && stack->next)
@@ -31,7 +36,9 @@ int ft_is_stack_ordered(t_list *stack)
 	}
 	return(1);
 }
-
+/**
+ * Main function
+ */
 int	main(int argc, char **argv)
 {
 	char	**numbers;
@@ -56,23 +63,9 @@ int	main(int argc, char **argv)
 	if(ft_is_stack_ordered(stack_a))
 		exit(EXIT_SUCCESS);
 	ft_sort(&stack_a,&stack_b);
-	ft_printf("\n");
-	ft_print_stack(stack_a);
+	// if(ft_is_stack_ordered(stack_a))
+	// 	ft_printf("Esta ordenada\n");
+	// ft_printf("\n");
+	// ft_print_stack(stack_a);
 	ft_free_stacks_and_matrix(&stack_a,&stack_b, numbers);
-	// ft_printf("luego de hacer sa\n");
-	// ft_sa(&stack_a,"sa\n");
-	// ft_rotate_stack(&stack_a,"ra\n");
-	// ft_printf("luego de hacer ra\n");
-	// ft_rotate_stack(&stack_a,"ra\n");
-	// ft_print_stack(stack_a);
-	// ft_printf("luego de hacer rra\n");
-	// ft_rotate_stack(&stack_a,"rra\n");
-	// ft_print_stack(stack_a);
-	// ft_printf("luego de hacer rra\n");
-	// ft_reverse_rotate_stack(&stack_a,"rra\n");
-	// ft_print_stack(stack_a);
-	//  ft_printf("luego de hacer pb (en el stack totalmente vacio)\n");
-	// t_list *node = ft_lstnew(10);
-	// ft_put_into_stack(&stack_b,node,"pa\n");
-	// ft_print_stack(stack_b);
 }

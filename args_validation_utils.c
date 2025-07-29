@@ -12,6 +12,9 @@
 
 #include "push_swap.h"
 
+/**
+ * Function to validate if a string is empty or blank
+ */
 int	ft_is_string_empty_or_blank(char *s)
 {
 	if (!s)
@@ -24,31 +27,12 @@ int	ft_is_string_empty_or_blank(char *s)
 	}
 	return (1);
 }
-int	ft_find_max_index(t_list *stack)
-{
-	int		max_value;
-	int		max_index;
-	t_list	*current;
 
-	if (!stack)
-		return (-1);
-
-	max_value = stack->content;
-	max_index = stack->pos;
-	current = stack;
-
-	while (current)
-	{
-		if (current->content > max_value)
-		{
-			max_value = current->content;
-			max_index = current->pos;
-		}
-		current = current->next;
-	}
-	return (max_index);
-}
-void	ft_free_stacks_and_matrix(t_list **a, t_list **b,char **matrix)
+/**
+ * Functio to free stacks and matrix that we used to get numbers
+ * from arguments
+ */
+void	ft_free_stacks_and_matrix(t_list **a, t_list **b, char **matrix)
 {
 	int	i;
 
@@ -67,3 +51,4 @@ void	ft_free_stacks_and_matrix(t_list **a, t_list **b,char **matrix)
 	if (b && *b)
 		ft_lstclear(b);
 }
+
