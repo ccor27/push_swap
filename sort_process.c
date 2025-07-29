@@ -3,66 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   sort_process.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crosorio <crosorio@student.42.fr>          +#+  +:+       +#+        */
+/*   By: crosorio < crosorio@student.42madrid.com>  #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/15 20:00:08 by crosorio          #+#    #+#             */
-/*   Updated: 2025/07/23 10:18:24 by crosorio         ###   ########.fr       */
+/*   Created: 2025-07-29 13:58:52 by crosorio          #+#    #+#             */
+/*   Updated: 2025-07-29 13:58:52 by crosorio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/**
- * Function to find the biggest number
- */
-int	ft_max(int a, int b)
-{
-	if (a > b)
-		return (a);
-	else
-		return (b);
-}
-/**
- * Function to find the absolute value of a number
- */
-int	ft_abs(int num)
-{
-	if (num < 0)
-		return (num * -1);
-	return (num);
-}
-void	ft_order_two(t_list **stack)
-{
-	if (!stack || !*stack || !(*stack)->next)
-		return ;
-	if ((*stack)->content > (*stack)->next->content)
-		ft_swap_two_element_at_top(stack, "sa\n");
-}
-
-t_list	*ft_pop(t_list **stack)
-{
-	t_list	*popped_node;
-
-	if (!stack || !*stack) // Check if stack pointer is NULL or stack is empty
-		return (NULL);
-	popped_node = *stack;    // Store the current head node
-	*stack = (*stack)->next; // Update the stack head to the next node
-	popped_node->next = NULL;
-	// Detach the popped node from the stack (optional but good practice)
-	return (popped_node); // Return the removed node
-}
-
 void	ft_sort(t_list **a, t_list **b)
 {
-	t_list	*cheap_movement;
-	int		min_index;
-	int		size;
-	int		i;
-	int		max_idx;
-	int		size_b;
-	int		j;
-
-	// validate stack a has more than 3 elements
 	if (ft_lstsize(*a) < 4)
 	{
 		if (ft_lstsize(*a) == 3)
@@ -72,51 +23,50 @@ void	ft_sort(t_list **a, t_list **b)
 	}
 	else
 	{
-		// pass the 2 first elements from A to B
-		ft_put_into_stack(b, ft_pop(a), "pb\n");
-		ft_put_into_stack(b, ft_pop(a), "pb\n");
-		// make a loop until the size of A be more than 3
-		while (ft_lstsize(*a) > 3)
-		{
-			// set the pos to each element of both A and B
-			ft_assing_positions(a);
-			ft_assing_positions(b);
-			// select the target of A's elements
-			ft_find_targets(a, b);
-			// find the cost
-			ft_find_cost(a, ft_lstsize(*a), ft_lstsize(*b));
-			// select the lowest cost
-			cheap_movement = ft_find_lowest_movements_cost(*a);
-			// make the move
-			ft_execute_movements(a, b, cheap_movement);
+		while (ft_lstsize(*a) > 3 && ft_lstsize(*b) < 2)
 			ft_put_into_stack(b, ft_pop(a), "pb\n");
-		}
+		while (ft_lstsize(*a) > 3)
+			ft_process_from_a_to_b(a, b);
+		ft_order_three_elements(a);
 		while (*b)
-		{
-			//ft_put_into_stack(a, ft_pop(b), "pa\n");
-			ft_assing_positions(b);
-			max_idx = ft_find_max_index(*b);
-			size_b = ft_lstsize(*b);
-			j = size_b - max_idx;
-			if (max_idx <= size_b / 2)
-				while (max_idx-- > 0)
-					ft_rotate_stack(b, "rb\n");
-			else
-				while (j --)
-					ft_reverse_rotate_stack(b, "rrb\n");
-			ft_put_into_stack(a, ft_pop(b), "pa\n");
-		}
-		// validate that the stack is ordered or we have to make more rotations
-		min_index = ft_find_min_index(*a);
-		size = ft_lstsize(*a);
-		if (min_index <= size / 2)
-			while (min_index-- > 0)
-				ft_rotate_stack(a, "ra\n");
-		else
-		{
-			i = size - min_index;
-			while (i-- > 0)
-				ft_reverse_rotate_stack(a, "rra\n");
-		}
+			ft_process_from_b_to_a(b, a);
+		ft_put_min_on_top(a);
+	}
+}
+
+void	ft_process_from_a_to_b(t_list **a, t_list **b)
+{
+	ft_assing_positions(a);
+	ft_assing_positions(b);
+	ft_target_process(a,*b,'a');
+	ft_find_cost(a, ft_lstsize(*a), ft_lstsize(*b));
+	ft_execute_movements(a, b, ft_find_lowest_movements_cost(*a));
+	ft_put_into_stack(b, ft_pop(a), "pb\n");
+}
+void	ft_process_from_b_to_a(t_list **b, t_list **a)
+{
+	ft_assing_positions(a);
+	ft_assing_positions(b);
+	ft_target_process(b,*a,'b');
+	ft_find_cost(b, ft_lstsize(*b), ft_lstsize(*a));
+	ft_execute_movements(b, a, ft_find_lowest_movements_cost(*b));
+	ft_put_into_stack(a, ft_pop(b), "pa\n");
+}
+void	ft_put_min_on_top(t_list **a)
+{
+	int	min_index;
+	int	size;
+	int	i;
+
+	min_index = ft_find_min_index(*a);
+	size = ft_lstsize(*a);
+	if (min_index <= size / 2)
+		while (min_index-- > 0)
+			ft_rotate_stack(a, "ra\n");
+	else
+	{
+		i = size - min_index;
+		while (i-- > 0)
+			ft_reverse_rotate_stack(a, "rra\n");
 	}
 }

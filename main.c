@@ -12,6 +12,9 @@
 
 #include "push_swap.h"
 
+/**
+ * Function to print a stack
+ */
 void	ft_print_stack(t_list *stack)
 {
 	while (stack)
@@ -20,7 +23,9 @@ void	ft_print_stack(t_list *stack)
 		stack = stack->next;
 	}
 }
-
+/**
+ * Function to validate if a stack is ordered
+ */
 int ft_is_stack_ordered(t_list *stack)
 {
 	while(stack && stack->next)
@@ -31,7 +36,9 @@ int ft_is_stack_ordered(t_list *stack)
 	}
 	return(1);
 }
-
+/**
+ * Main function
+ */
 int	main(int argc, char **argv)
 {
 	char	**numbers;
@@ -56,7 +63,9 @@ int	main(int argc, char **argv)
 	if(ft_is_stack_ordered(stack_a))
 		exit(EXIT_SUCCESS);
 	ft_sort(&stack_a,&stack_b);
-	ft_printf("\n");
-	ft_print_stack(stack_a);
+	// if(ft_is_stack_ordered(stack_a))
+	// 	ft_printf("Esta ordenada\n");
+	// ft_printf("\n");
+	// ft_print_stack(stack_a);
 	ft_free_stacks_and_matrix(&stack_a,&stack_b, numbers);
 }

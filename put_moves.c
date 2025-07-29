@@ -12,6 +12,9 @@
 
 #include "push_swap.h"
 
+/**
+ * Function to put in the top from one stack to another
+ */
 void ft_put_into_stack(t_list **stack, t_list *node, char *movemnt)
 {
 		if (!node)
