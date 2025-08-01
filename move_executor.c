@@ -18,6 +18,8 @@
  */
 void	ft_execute_movements(t_list **a, t_list **b, t_list *node)
 {
+	ft_printf("el nodo es: %d y el cost_a: %d, el const_b: %d\n",node->content,node->cost_a,node->cost_b);
+	ft_printf("la posicion del target es: %d\n", node->target_pos);
 	if (node->cost_a >= 0 && node->cost_b >= 0)
 		ft_do_rr(a, b, node);
 	else if (node->cost_a < 0 && node->cost_b < 0)
@@ -39,7 +41,10 @@ void	ft_do_different_moves(t_list **a, t_list **b, t_list *node)
 			ft_reverse_rotate_stack(a, "rra\n");
 	if (node->cost_b > 0)
 		while (node->cost_b-- > 0)
+		{
+			ft_printf("desde ft_do_different_moves\n");
 			ft_rotate_stack(b, "rb\n");
+		}
 	else
 		while (node->cost_b++ < 0)
 			ft_reverse_rotate_stack(b, "rrb\n");
@@ -76,8 +81,14 @@ void	ft_do_rr(t_list **a, t_list **b, t_list *node)
 		node->cost_b--;
 	}
 	while (node->cost_a-- > 0)
+	{
+		ft_printf("desde ft_do_rr\n");
 		ft_rotate_stack(a, "ra\n");
+	}
 	while (node->cost_b-- > 0)
-		ft_rotate_stack(b, "rb\n");
+	{
+			ft_printf("desde ft_do_rr\n");
+			ft_rotate_stack(b, "rb\n");
+	}
 }
 

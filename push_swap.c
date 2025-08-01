@@ -63,9 +63,13 @@ int	main(int argc, char **argv)
 	if(ft_is_stack_ordered(stack_a))
 		exit(EXIT_SUCCESS);
 	ft_sort(&stack_a,&stack_b);
+	ft_printf("\n");
+	ft_print_stack(stack_a);
 	// if(ft_is_stack_ordered(stack_a))
 	// 	ft_printf("Esta ordenada\n");
+	ft_free_stacks_and_matrix(&stack_a,&stack_b, numbers);
+	}
+
 	// ft_printf("\n");
 	// ft_print_stack(stack_a);
-	ft_free_stacks_and_matrix(&stack_a,&stack_b, numbers);
-}
+	//ft_printf("El tamaño del stack A es: %d\n",ft_lstsize(stack_a));

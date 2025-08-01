@@ -1,5 +1,5 @@
 NAME        = push_swap
-SRC         = main.c sort_utils.c args_validation.c swap_moves.c rotate_moves.c put_moves.c sort_process.c \
+SRC         = push_swap.c sort_utils.c args_validation.c swap_moves.c rotate_moves.c put_moves.c sort_process.c \
             args_validation_utils.c move_executor.c target_finder.c sort_process_utils.c
 OBJ_DIR     = obj
 OBJ         = $(addprefix $(OBJ_DIR)/,$(SRC:.c=.o))

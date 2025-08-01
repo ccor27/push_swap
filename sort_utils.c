@@ -42,28 +42,6 @@ t_list	*ft_find_lowest_movements_cost(t_list *stack)
 	}
 	return (cheap);
 }
-/**
- * Function to calculate the cost of movements of each node of A
- * and its target
- */
-void	ft_find_cost(t_list **node, int stack_a_size, int stack_b_size)
-{
-	t_list	*head;
-
-	head = *node;
-	while (head)
-	{
-		if (head->pos <= stack_a_size / 2)
-			head->cost_a = head->pos;
-		else
-			head->cost_a = (stack_a_size - head->pos) * -1;
-		if (head->target_pos <= stack_b_size / 2)
-			head->cost_b = head->target_pos;
-		else
-			head->cost_b = (stack_b_size - head->target_pos) * -1;
-		head = head->next;
-	}
-}
 
 /**
  * Function to find the min value of a stack
@@ -72,22 +50,39 @@ int	ft_find_min_index(t_list *node)
 {
 	int		min;
 	int		index;
-	int		pos;
 	t_list	*tmp;
 
 	tmp = node;
 	min = tmp->content;
-	pos = 0;
 	index = 0;
 	while (tmp)
 	{
 		if (tmp->content < min)
 		{
 			min = tmp->content;
-			index = pos;
+			index = tmp->pos;
 		}
 		tmp = tmp->next;
-		pos++;
+	}
+	return (index);
+}
+int	ft_find_max_index(t_list *node)
+{
+	int		min;
+	int		index;
+	t_list	*tmp;
+
+	tmp = node;
+	min = tmp->content;
+	index = 0;
+	while (tmp)
+	{
+		if (tmp->content > min)
+		{
+			min = tmp->content;
+			index = tmp->pos;
+		}
+		tmp = tmp->next;
 	}
 	return (index);
 }
@@ -109,3 +104,29 @@ void	ft_assing_positions(t_list **stack)
 	}
 }
 
+void	ft_find_cost_helper(char from, t_list *head, int first_stack_size,
+		int second_stack_size)
+{
+	if (from == 'a')
+	{
+		if (head->pos <= first_stack_size / 2)
+			head->cost_a = head->pos;
+		else
+			head->cost_a = (first_stack_size - head->pos) * -1;
+		if (head->target_pos <= second_stack_size / 2)
+			head->cost_b = head->target_pos;
+		else
+			head->cost_b = (second_stack_size - head->target_pos) * -1;
+	}
+	else
+	{
+		if (head->pos <= first_stack_size / 2)
+			head->cost_b = head->pos;
+		else
+			head->cost_b = (first_stack_size - head->pos) * -1;
+		if (head->target_pos <= second_stack_size / 2)
+			head->cost_a = head->target_pos;
+		else
+			head->cost_a = (second_stack_size - head->target_pos) * -1;
+	}
+}
