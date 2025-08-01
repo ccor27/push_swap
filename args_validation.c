@@ -6,7 +6,7 @@
 /*   By: crosorio <crosorio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 17:45:23 by crosorio          #+#    #+#             */
-/*   Updated: 2025/07/12 14:11:54 by crosorio         ###   ########.fr       */
+/*   Updated: 2025/08/01 16:43:15 by crosorio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_is_valid_number(char *s)
 	i = 0;
 	if (s[i] == '-' || s[i] == '+')
 		i++;
-	if (!s[i]) // sign without number
+	if (!s[i])
 		return (0);
 	while (s[i])
 	{
@@ -33,7 +33,8 @@ int	ft_is_valid_number(char *s)
 	}
 	return (1);
 }
-/**
+
+/*
  * Function to validate if a number exist in the stack
  */
 int	ft_exist_number_in_stack(int number, t_list *stack)
@@ -65,12 +66,10 @@ int	ft_fill_up_stack_a(t_list **stack, char **matrix)
 		if (!ft_is_valid_number(matrix[i]))
 			return (0);
 		long_number = ft_atol(matrix[i]);
-		if (long_number < INT32_MIN || long_number >= INT32_MAX)
+		if (long_number < INT_MIN || long_number >= INT_MAX)
 			return (0);
 		if (ft_exist_number_in_stack(long_number, *stack))
 			return (0);
-		// there is not needed make the cast '	ft_printf("Error\n");cause the an int
-		// fits in a long, so the compiler make the cast
 		new_node = ft_lstnew(long_number);
 		ft_lstadd_back(stack, new_node);
 		i++;
@@ -119,11 +118,11 @@ void	ft_join_arguments(char **arguments, char **joined)
 			*joined = ft_strdup(arguments[i]);
 		else
 		{
-			if(ft_is_string_empty_or_blank(arguments[i]))
+			if (ft_is_string_empty_or_blank(arguments[i]))
 			{
 				free(*joined);
 				joined = NULL;
-				break;
+				break ;
 			}
 			tmp = ft_strjoin(*joined, " ");
 			free(*joined);

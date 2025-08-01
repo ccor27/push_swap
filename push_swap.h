@@ -6,7 +6,7 @@
 /*   By: crosorio <crosorio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 12:42:21 by crosorio          #+#    #+#             */
-/*   Updated: 2025/07/19 12:43:58 by crosorio         ###   ########.fr       */
+/*   Updated: 2025/08/01 14:26:20 by crosorio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ void	ft_join_arguments(char **arguments, char **joined);
 void	ft_print_stack(t_list *stack);
 int		ft_is_stack_ordered(t_list *stack);
 // move_executor.c
-void	ft_execute_movements(t_list **a, t_list **b, t_list *node);
+//void	ft_execute_movements(t_list **a, t_list **b, t_list *node);
+void	ft_execute_movements(t_list **stack_from, t_list **stack_dest, t_list *node,  char move);
 void	ft_do_different_moves(t_list **a, t_list **b, t_list *node);
 void	ft_do_rrr(t_list **a, t_list **b, t_list *node);
 void	ft_do_rr(t_list **a, t_list **b, t_list *node);

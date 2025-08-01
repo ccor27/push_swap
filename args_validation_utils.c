@@ -6,7 +6,7 @@
 /*   By: crosorio <crosorio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 20:55:09 by crosorio          #+#    #+#             */
-/*   Updated: 2025/07/19 12:43:51 by crosorio         ###   ########.fr       */
+/*   Updated: 2025/08/01 15:12:03 by crosorio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,4 @@ void	ft_free_stacks_and_matrix(t_list **a, t_list **b, char **matrix)
 	if (b && *b)
 		ft_lstclear(b);
 }
-	// ft_printf("stack A existe");
-	// ft_printf("stack A despues de ser eliminado %p", *a);
-	// ft_printf("stack B existe");
-	// ft_printf("stack B despues de ser eliminado %p", *b);
 
