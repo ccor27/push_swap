@@ -6,13 +6,13 @@
 /*   By: crosorio <crosorio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 12:42:21 by crosorio          #+#    #+#             */
-/*   Updated: 2025/08/01 14:26:20 by crosorio         ###   ########.fr       */
+/*   Updated: 2025/08/01 19:24:07 by crosorio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-# include "printf/ft_printf.h"
+# include "libft/libft.h"
 # include <stdlib.h>
 
 // args_validation_utils.c

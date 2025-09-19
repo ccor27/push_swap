@@ -6,7 +6,7 @@
 /*   By: crosorio <crosorio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 12:44:30 by crosorio          #+#    #+#             */
-/*   Updated: 2025/08/01 15:29:53 by crosorio         ###   ########.fr       */
+/*   Updated: 2025/08/01 16:50:10 by crosorio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	main(int argc, char **argv)
 		exit(EXIT_SUCCESS);
 	ft_sort(&stack_a,&stack_b);
 	free(joined);
-	ft_printf("\n");
-	ft_print_stack(stack_a);
+	// ft_printf("\n");
+	// ft_print_stack(stack_a);
 	ft_free_stacks_and_matrix(&stack_a,&stack_b, numbers);
 	}

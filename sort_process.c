@@ -6,12 +6,15 @@
 /*   By: crosorio <crosorio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 13:58:52 by crosorio          #+#    #+#             */
-/*   Updated: 2025/08/01 16:42:29 by crosorio         ###   ########.fr       */
+/*   Updated: 2025/09/19 20:55:24 by crosorio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/**
+ * Principal function to sort the stack
+ */
 void	ft_sort(t_list **a, t_list **b)
 {
 	if (ft_lstsize(*a) < 4)
@@ -34,16 +37,17 @@ void	ft_sort(t_list **a, t_list **b)
 		ft_put_min_on_top(a);
 	}
 }
-
+/**
+ * Function to pass from A to B
+ */
 void	ft_process_from_a_to_b(t_list **a, t_list **b)
 {
-	ft_assing_positions(a);
-	ft_assing_positions(b);
-	ft_target_process(a,*b,'a');
-	ft_find_cost(a, ft_lstsize(*a), ft_lstsize(*b),'a');
-	ft_execute_movements(a, b, ft_find_lowest_movements_cost(*a),'a');
 	ft_put_into_stack(b, ft_pop(a),  "pb\n");
 }
+
+/**
+ * Function to pass from B to A
+ */
 void	ft_process_from_b_to_a(t_list **b, t_list **a)
 {
 	ft_assing_positions(a);
@@ -53,6 +57,10 @@ void	ft_process_from_b_to_a(t_list **b, t_list **a)
 	ft_execute_movements(b, a, ft_find_lowest_movements_cost(*b),'b');
 	ft_put_into_stack(a, ft_pop(b), "pa\n");
 }
+
+/**
+ * Function to put the minimum vale in the top of stack 
+ */
 void	ft_put_min_on_top(t_list **a)
 {
 	int	min_index;

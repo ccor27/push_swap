@@ -6,25 +6,26 @@
 /*   By: crosorio <crosorio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 17:55:46 by crosorio          #+#    #+#             */
-/*   Updated: 2025/07/12 10:40:26 by crosorio         ###   ########.fr       */
+/*   Updated: 2025/08/01 19:41:22 by crosorio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+# include <limits.h>
+# include <stdarg.h>
 # include <stdint.h>
 # include <stdlib.h>
 # include <unistd.h>
-
 typedef struct s_list
 {
-	int				content;      // El número original
-	int				pos;          // Posición actual en el stack
-	int				target_pos;   // Posición ideal en B donde debe insertarse
-	int				cost_a;       // Movimientos necesarios en A
-	int				cost_b;       // Movimientos necesarios en B
+	int content;    // El número original
+	int pos;        // Posición actual en el stack
+	int target_pos; // Posición ideal en B donde debe insertarse
+	int cost_a;     // Movimientos necesarios en A
+	int cost_b;     // Movimientos necesarios en B
 	struct s_list	*next;
-}	t_list;
+}					t_list;
 int					ft_isalnum(int c);
 int					ft_isalpha(int c);
 int					ft_isascii(int c);
@@ -73,4 +74,15 @@ char				*ft_utoa(unsigned int n);
 char				*ft_itoa_base(unsigned long n, int base);
 long				ft_atol(const char *str);
 size_t				ft_strspn(const char *s, const char *accept);
+int					ft_is_valid_specifier(char c);
+int					ft_scan(char specifier, va_list args);
+int					ft_process_string(char *ptr, va_list args);
+int					ft_handle_int(int num);
+int					ft_handle_unsigned_int(unsigned int num);
+int					ft_handle_hexadecimal(unsigned int num, char c);
+int					ft_handle_percentage(void);
+int					ft_handle_string(char *string);
+int					ft_handle_character(char c);
+int					ft_handle_pointer(void *ptr);
+int					ft_printf(const char *string, ...);
 #endif
