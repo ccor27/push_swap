@@ -6,11 +6,11 @@
 /*   By: crosorio <crosorio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 16:05:10 by crosorio          #+#    #+#             */
-/*   Updated: 2025/05/19 16:05:11 by crosorio         ###   ########.fr       */
+/*   Updated: 2025/08/01 19:42:27 by crosorio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 /**
  * Funtion to validate if a character is a
