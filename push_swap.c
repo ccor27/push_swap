@@ -66,4 +66,5 @@ int	main(int argc, char **argv)
 	ft_printf("\n");
 	ft_print_stack(stack_a);
 	ft_free_stacks_and_matrix(&stack_a,&stack_b, numbers);
+	return(0);
 	}
