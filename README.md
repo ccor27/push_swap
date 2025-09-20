@@ -20,6 +20,35 @@ The permitted operations are:
 
 This project is a fantastic exercise in algorithmic thinking and data structure optimization. The key is to find an efficient sorting strategy that can handle large numbers of elements while keeping the move count to a minimum.
 
+## How use it
+
+Clone the repo
+
+```bash
+git clone
+```
+
+Compile the code with
+
+```bash
+make
+```
+Use the checker_linux to validate the stack is sorter correctly (it will display OK)
+
+```bash
+ARG=" 9 7 12 3" ; ./push_swap $ARG | ./checker_linux $ARG
+```
+
+Use the pipe command and the wc -l command to count the number of movements
+
+```bash
+ARG=" 9 7 12 3" ; ./push_swap $ARG | wc -l
+```
+
+If you want more cases test, in the test_cases.txt there are some, you just have to copy and paste in the terminal
+
+
 ## resources I used to understand
 + https://medium.com/@ayogun/push-swap-c1f5d2d41e97
 + https://www.youtube.com/watch?v=wRvipSG4Mmk&t=1436s
+

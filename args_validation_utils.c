@@ -51,4 +51,3 @@ void	ft_free_stacks_and_matrix(t_list **a, t_list **b, char **matrix)
 	if (b && *b)
 		ft_lstclear(b);
 }
-

@@ -12,11 +12,12 @@
 
 #include "libft.h"
 
+/**
+ * Function modified
+ *  free(lst->content);
+ */
 void	ft_lstdelone(t_list *lst)
 {
 	if (lst)
-	{
-		//free(lst->content);
 		free(lst);
-	}
 }

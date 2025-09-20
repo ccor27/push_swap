@@ -28,8 +28,9 @@ void	ft_join_arguments(char **arguments, char **joined);
 void	ft_print_stack(t_list *stack);
 int		ft_is_stack_ordered(t_list *stack);
 // move_executor.c
-//void	ft_execute_movements(t_list **a, t_list **b, t_list *node);
-void	ft_execute_movements(t_list **stack_from, t_list **stack_dest, t_list *node,  char move);
+// void	ft_execute_movements(t_list **a, t_list **b, t_list *node);
+void	ft_execute_movements(t_list **stack_from, t_list **stack_dest,
+			t_list *node, char move);
 void	ft_do_different_moves(t_list **a, t_list **b, t_list *node);
 void	ft_do_rrr(t_list **a, t_list **b, t_list *node);
 void	ft_do_rr(t_list **a, t_list **b, t_list *node);
@@ -52,13 +53,15 @@ void	ft_sort(t_list **a, t_list **b);
 void	ft_process_from_a_to_b(t_list **a, t_list **b);
 void	ft_process_from_b_to_a(t_list **b, t_list **a);
 void	ft_put_min_on_top(t_list **a);
-void	ft_find_cost(t_list **node, int first_stack_size, int second_stack_size, char from);
+void	ft_find_cost(t_list **node, int first_stack_size, int second_stack_size,
+			char from);
 // sort_utils.c
 t_list	*ft_find_lowest_movements_cost(t_list *stack);
 int		ft_find_min_index(t_list *node);
-int ft_find_max_index(t_list  *node);
+int		ft_find_max_index(t_list *node);
 void	ft_assing_positions(t_list **stack);
-void	ft_find_cost_helper(char from, t_list *head, int first_stack_size, int second_stack_size);
+void	ft_find_cost_helper(char from, t_list *head, int first_stack_size,
+			int second_stack_size);
 // swap_moves.c
 void	ft_swap_two_element_at_top(t_list **stack, char *movement);
 void	ft_swap_elements_same_time(t_list **stack_a, t_list **stack_b);

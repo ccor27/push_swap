@@ -17,15 +17,17 @@
 # include <stdint.h>
 # include <stdlib.h>
 # include <unistd.h>
+
 typedef struct s_list
 {
-	int content;    // El número original
-	int pos;        // Posición actual en el stack
-	int target_pos; // Posición ideal en B donde debe insertarse
-	int cost_a;     // Movimientos necesarios en A
-	int cost_b;     // Movimientos necesarios en B
+	int				content;
+	int				pos;
+	int				target_pos;
+	int				cost_a;
+	int				cost_b;
 	struct s_list	*next;
 }					t_list;
+
 int					ft_isalnum(int c);
 int					ft_isalpha(int c);
 int					ft_isascii(int c);

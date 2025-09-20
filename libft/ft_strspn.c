@@ -11,16 +11,10 @@
 /* ************************************************************************** */
 #include "libft.h"
 
-size_t	ft_strspn(const char *s, const char *accept)
+static void	ft_aux(size_t count, int found, const char *a, const char *s)
 {
-	size_t		count;
-	int			found;
-	const char	*a = accept;
-
-	count = 0;
 	while (*s)
 	{
-		found = 0;
 		while (*a)
 		{
 			if (*s == *a)
@@ -38,5 +32,17 @@ size_t	ft_strspn(const char *s, const char *accept)
 		else
 			break ;
 	}
+}
+
+size_t	ft_strspn(const char *s, const char *accept)
+{
+	size_t		count;
+	int			found;
+	const char	*a;
+
+	found = 0;
+	count = 0;
+	a = accept;
+	ft_aux(count, found, a, s);
 	return (count);
 }

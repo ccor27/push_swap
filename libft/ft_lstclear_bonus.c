@@ -14,10 +14,10 @@
 
 void	ft_lstclear(t_list **lst)
 {
-	t_list *aux;
+	t_list	*aux;
 
 	if (!lst)
-		return;
+		return ;
 	while (*lst)
 	{
 		aux = (*lst)->next;

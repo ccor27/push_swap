@@ -16,9 +16,10 @@
  * Function to decide which movements do depending
  * of the cost's sign of both stacks
  */
-void	ft_execute_movements(t_list **stack_from, t_list **stack_dest, t_list *node,  char move)
+void	ft_execute_movements(t_list **stack_from, t_list **stack_dest,
+		t_list *node, char move)
 {
-	if(move == 'a')
+	if (move == 'a')
 	{
 		if (node->cost_a >= 0 && node->cost_b >= 0)
 			ft_do_rr(stack_from, stack_dest, node);
@@ -34,7 +35,7 @@ void	ft_execute_movements(t_list **stack_from, t_list **stack_dest, t_list *node
 		else if (node->cost_a < 0 && node->cost_b < 0)
 			ft_do_rrr(stack_dest, stack_from, node);
 		else
-			ft_do_different_moves(stack_dest,stack_from,node);
+			ft_do_different_moves(stack_dest, stack_from, node);
 	}
 }
 
@@ -90,6 +91,5 @@ void	ft_do_rr(t_list **a, t_list **b, t_list *node)
 	while (node->cost_a-- > 0)
 		ft_rotate_stack(a, "ra\n");
 	while (node->cost_b-- > 0)
-			ft_rotate_stack(b, "rb\n");
+		ft_rotate_stack(b, "rb\n");
 }
-

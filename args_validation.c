@@ -54,7 +54,7 @@ int	ft_exist_number_in_stack(int number, t_list *stack)
  * Function to fill up the A stack with the arguments.
  * Validating if each number
  */
-int		ft_fill_up_stack_a(t_list **stack, char **matrix)
+int	ft_fill_up_stack_a(t_list **stack, char **matrix)
 {
 	int		i;
 	long	long_number;

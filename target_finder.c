@@ -12,10 +12,14 @@
 
 #include "push_swap.h"
 
+/**
+ * Function to find the position in the stack
+ * of  the target
+ */
 int	ft_find_pos(t_list *stack)
 {
-	int value;
-	int pos;
+	int	value;
+	int	pos;
 
 	if (!stack)
 		return (-1);
@@ -32,12 +36,17 @@ int	ft_find_pos(t_list *stack)
 	}
 	return (pos);
 }
-int	ft_get_target_pos(t_list *node_to_compare, t_list *list_to_compare, char from, int target_pos)
+
+/**
+ * Function to find the node's target
+ */
+int	ft_get_target_pos(t_list *node_to_compare, t_list *list_to_compare,
+		char from, int target_pos)
 {
 	t_list	*head;
 	int		best_match_val;
 
-	if(from == 'a')
+	if (from == 'a')
 		best_match_val = INT_MIN;
 	else
 		best_match_val = INT_MAX;
@@ -45,21 +54,25 @@ int	ft_get_target_pos(t_list *node_to_compare, t_list *list_to_compare, char fro
 	while (head)
 	{
 		if (from == 'a' && (head->content < node_to_compare->content
-			&& head->content > best_match_val))
+				&& head->content > best_match_val))
 		{
 			best_match_val = head->content;
 			target_pos = head->pos;
 		}
-		else if( from =='b' && (head->content > node_to_compare->content
+		else if (from == 'b' && (head->content > node_to_compare->content
 				&& head->content < best_match_val))
 		{
-				best_match_val = head->content;
-				target_pos = head->pos;
+			best_match_val = head->content;
+			target_pos = head->pos;
 		}
 		head = head->next;
 	}
 	return (target_pos);
 }
+
+/**
+ * Principal function to find the target of a node
+ */
 void	ft_target_process(t_list **list, t_list *node, char from)
 {
 	t_list	*head;
@@ -68,8 +81,8 @@ void	ft_target_process(t_list **list, t_list *node, char from)
 	head = *list;
 	while (head)
 	{
-		target_pos = ft_get_target_pos(head,node,from,-1);
-		if(target_pos == -1)
+		target_pos = ft_get_target_pos(head, node, from, -1);
+		if (target_pos == -1)
 			target_pos = ft_find_pos(node);
 		head->target_pos = target_pos;
 		head = head->next;

@@ -15,11 +15,11 @@
 /**
  * Function to put in the top from one stack to another
  */
-void ft_put_into_stack(t_list **stack, t_list *node, char *movemnt)
+void	ft_put_into_stack(t_list **stack, t_list *node, char *movemnt)
 {
-		if (!node)
-			return ;
-		ft_lstadd_front(stack,node);
-		if(movemnt)
-			ft_printf("%s",movemnt);
+	if (!node)
+		return ;
+	ft_lstadd_front(stack, node);
+	if (movemnt)
+		ft_printf("%s", movemnt);
 }

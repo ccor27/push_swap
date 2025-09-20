@@ -16,7 +16,7 @@ t_list	*ft_lstmap(t_list *lst, int (*f)(int))
 {
 	t_list	*new_list;
 	t_list	*new_node;
-	int	new_content;
+	int		new_content;
 
 	if (lst && f)
 	{

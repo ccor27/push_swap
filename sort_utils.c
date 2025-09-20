@@ -66,6 +66,11 @@ int	ft_find_min_index(t_list *node)
 	}
 	return (index);
 }
+
+/**
+ * Function to find the max node's position
+ * of the stack
+ */
 int	ft_find_max_index(t_list *node)
 {
 	int		min;
@@ -86,6 +91,7 @@ int	ft_find_max_index(t_list *node)
 	}
 	return (index);
 }
+
 /**
  * Function to assig the position of the node
  */
@@ -104,6 +110,9 @@ void	ft_assing_positions(t_list **stack)
 	}
 }
 
+/**
+ * Function find the cost of movements
+ */
 void	ft_find_cost_helper(char from, t_list *head, int first_stack_size,
 		int second_stack_size)
 {

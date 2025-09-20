@@ -33,6 +33,9 @@ void	ft_swap_two_element_at_top(t_list **stack, char *movemnt)
 		ft_printf("%s", movemnt);
 }
 
+/**
+ * Function to swap two stacks at the same time
+ */
 void	ft_swap_elements_same_time(t_list **stack_a, t_list **stack_b)
 {
 	ft_swap_two_element_at_top(stack_a, NULL);

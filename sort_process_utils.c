@@ -22,6 +22,7 @@ int	ft_max(int a, int b)
 	else
 		return (b);
 }
+
 /**
  * Function to find the absolute value of a number
  */
@@ -31,6 +32,7 @@ int	ft_abs(int num)
 		return (num * -1);
 	return (num);
 }
+
 /**
  * Function to order two numbers into stack
  */
@@ -63,17 +65,14 @@ t_list	*ft_pop(t_list **stack)
  */
 void	ft_order_three_elements(t_list **stack)
 {
-	 int biggest_pos; 
-	 
-    ft_assing_positions(stack); 
+	int	biggest_pos;
 
-    biggest_pos = ft_find_max_index(*stack);
-
-    if (biggest_pos == 0) 
-        ft_rotate_stack(stack, "ra\n"); 
-    else if (biggest_pos == 1)
-        ft_reverse_rotate_stack(stack, "rra\n");
-
-    if ((*stack)->content > (*stack)->next->content)
-        ft_swap_two_element_at_top(stack, "sa\n"); 
+	ft_assing_positions(stack);
+	biggest_pos = ft_find_max_index(*stack);
+	if (biggest_pos == 0)
+		ft_rotate_stack(stack, "ra\n");
+	else if (biggest_pos == 1)
+		ft_reverse_rotate_stack(stack, "rra\n");
+	if ((*stack)->content > (*stack)->next->content)
+		ft_swap_two_element_at_top(stack, "sa\n");
 }

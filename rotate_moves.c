@@ -60,6 +60,7 @@ void	ft_reverse_rotate_stack(t_list **stack, char *movemnt)
 	if (movemnt)
 		ft_printf("%s", movemnt);
 }
+
 /**
  * Function to make a reverse rotation of two stacks
  */
